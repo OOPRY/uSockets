@@ -63,7 +63,7 @@ struct mmsghdr {
 
     struct mmsghdr *hdrs = (struct mmsghdr *) msgvec;
 
-    for (int i = 0; i < vlen; i++) {
+    for (unsigned int i = 0; i < vlen; i++) {
         int ret = sendmsg(fd, &hdrs[i].msg_hdr, flags);
         if (ret == -1) {
             if (i) {
