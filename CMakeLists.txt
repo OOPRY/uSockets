@@ -20,9 +20,9 @@ endif()
 #endif()
 add_subdirectory(lib/libuv)
 
-set(GO_EXECUTABLE "go")
-set(BORINGSSL_INCLUDE "boringssl/include")
-add_subdirectory(boringssl)
+#set(GO_EXECUTABLE "go")
+#set(BORINGSSL_INCLUDE "boringssl/include")
+#add_subdirectory(boringssl)
 
 # set(BORINGSSL_LIB_ssl "ssl")
 # set(BORINGSSL_LIB_crypto "crypto")
