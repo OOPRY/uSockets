@@ -20,6 +20,15 @@ endif()
 #endif()
 add_subdirectory(lib/libuv)
 
+set(GO_EXECUTABLE "go")
+set(BORINGSSL_INCLUDE "boringssl/include")
+add_subdirectory(boringssl)
+
+# set(BORINGSSL_LIB_ssl "ssl")
+# set(BORINGSSL_LIB_crypto "crypto")
+# set(LSQUIC_TESTS OFF)
+# add_subdirectory(lsquic)
+
 file(GLOB SOURCES src/*.c src/eventing/*.c)
 
 set(USOCKETS_EXT_INCLUDE_DIR )
@@ -31,7 +40,8 @@ if (CMAKE_USE_OPENSSL)
     find_package(OpenSSL REQUIRED)
     file(GLOB SSL_SOURCES src/crypto/*.c*)
     list(APPEND SOURCES ${SSL_SOURCES})
-    list(APPEND USOCKETS_EXT_LIBS OpenSSL::SSL OpenSSL::Crypto)
+    #list(APPEND USOCKETS_EXT_LIBS OpenSSL::SSL OpenSSL::Crypto)
+    list(APPEND USOCKETS_EXT_LIBS ssl crypto)
 endif()
 
 if (CMAKE_USE_EVENT)
